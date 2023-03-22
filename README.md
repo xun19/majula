@@ -104,6 +104,7 @@ Page({
                 },
                 (params) => {
                     console.log('before2', params)
+                    // 返回false，可以阻断setData的继续进行
                     if (paramas.newVals.name !== 'Ace') return false
                 },
                 (params) => {
@@ -126,15 +127,23 @@ Page({
 })
 ```
 - 基于它，封装出你喜欢的更多、更便捷的功能和特性
+
+例如，我们用它来封装集成一个data、computed、updated的类Vue响应性数据：
 ```javascript
 import superData from 'your-extend'
 Page({
     onLoad() {
         // 更便捷、更语义化的扩展特性
         superData({
-            data: {},
-            computed: {},
-            updated: {}
+            data: {
+
+            },
+            computed: {
+
+            },
+            updated: {
+
+            }
         })
     }
 })
